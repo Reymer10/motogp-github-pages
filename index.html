@@ -1,256 +1,201 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>MotoGP | Campeonato Mundial</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>MotoGP - Campeonato Mundial</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-:root{
-    --rojo:#e10600;
-    --fondo:#0f0f0f;
-    --card:#1c1c1c;
-    --texto:#ffffff;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.light{
-    --fondo:#f4f4f4;
-    --card:#ffffff;
-    --texto:#111;
-}
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            line-height: 1.6;
+        }
 
-*{margin:0;padding:0;box-sizing:border-box;}
+        header {
+            background: url("https://images.unsplash.com/photo-1603133872878-684f208fb84b") center/cover no-repeat;
+            height: 70vh;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
 
-body{
-    font-family:Segoe UI, sans-serif;
-    background:var(--fondo);
-    color:var(--texto);
-    transition:.4s;
-}
+        header h1 {
+            font-size: 4rem;
+            text-shadow: 3px 3px 10px black;
+        }
 
-/* HEADER */
-header{
-    height:80vh;
-    background:
-    linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
-    url("https://cdn.motogp.com/images/motogp-social.jpg") center/cover;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-}
+        header p {
+            font-size: 1.5rem;
+            margin-top: 10px;
+        }
 
-header h1{
-    font-size:4rem;
-    color:var(--rojo);
-}
+        nav {
+            background-color: #e10600;
+            padding: 15px;
+            text-align: center;
+        }
 
-header p{
-    max-width:700px;
-    font-size:1.2rem;
-}
+        nav a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
 
-/* NAV */
-nav{
-    background:var(--rojo);
-    display:flex;
-    justify-content:center;
-    gap:25px;
-    padding:15px;
-    position:sticky;
-    top:0;
-    z-index:100;
-}
+        nav a:hover {
+            text-decoration: underline;
+        }
 
-nav a{
-    color:white;
-    text-decoration:none;
-    font-weight:bold;
-}
+        section {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
 
-/* BOTON */
-.toggle{
-    position:fixed;
-    right:20px;
-    bottom:20px;
-    background:var(--rojo);
-    color:white;
-    border:none;
-    padding:12px 18px;
-    border-radius:30px;
-    cursor:pointer;
-}
+        h2 {
+            color: #e10600;
+            margin-bottom: 15px;
+            font-size: 2rem;
+        }
 
-/* CONTENEDOR */
-.container{
-    max-width:1100px;
-    margin:auto;
-    padding:40px 20px;
-}
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
 
-section{margin-bottom:70px;}
+        .card {
+            background: #fafafa;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
 
-h2{
-    color:var(--rojo);
-    margin-bottom:20px;
-    font-size:2rem;
-}
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
 
-.card{
-    background:var(--card);
-    padding:25px;
-    border-radius:15px;
-    box-shadow:0 10px 30px rgba(0,0,0,.4);
-}
+        .card h3 {
+            padding: 15px;
+            color: #e10600;
+        }
 
-.card img{
-    width:100%;
-    border-radius:15px;
-    margin-top:15px;
-}
+        .card p {
+            padding: 0 15px 15px;
+        }
 
-/* GRID */
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-}
+        footer {
+            background-color: #111;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
 
-.grid div{
-    background:var(--card);
-    padding:20px;
-    border-radius:15px;
-    text-align:center;
-}
-
-/* TABLA */
-table{
-    width:100%;
-    border-collapse:collapse;
-    margin-top:20px;
-}
-
-th,td{
-    padding:12px;
-    text-align:center;
-}
-
-th{
-    background:var(--rojo);
-    color:white;
-}
-
-tr:nth-child(even){
-    background:rgba(255,255,255,.05);
-}
-
-/* FOOTER */
-footer{
-    background:#000;
-    padding:25px;
-    text-align:center;
-    font-size:.9rem;
-}
-
-footer span{color:var(--rojo);}
-</style>
+        footer p {
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
-
 <body>
 
 <header>
-<h1>MotoGP</h1>
-<p>La máxima categoría del motociclismo mundial. Velocidad, tecnología y pasión.</p>
+    <div>
+        <h1>MotoGP</h1>
+        <p>Campeonato Mundial de Motociclismo</p>
+    </div>
 </header>
 
 <nav>
-<a href="#info">MotoGP</a>
-<a href="#categorias">Categorías</a>
-<a href="#pilotos">Pilotos</a>
-<a href="#campeones">Campeones</a>
-<a href="#calendario">Calendario</a>
+    <a href="#que-es">¿Qué es?</a>
+    <a href="#categorias">Categorías</a>
+    <a href="#pilotos">Pilotos</a>
+    <a href="#proyecto">Proyecto</a>
 </nav>
 
-<button class="toggle" onclick="modo()">Modo 🌙</button>
-
-<div class="container">
-
-<section id="info">
-<h2>¿Qué es MotoGP?</h2>
-<div class="card">
-<p>
-MotoGP es el campeonato mundial más prestigioso del motociclismo.
-Participan los mejores pilotos del planeta en motocicletas que superan
-los 350 km/h, combinando talento humano y tecnología extrema.
-</p>
-<img src="https://resources.motogp.com/files/images/2023/02/06/riders.jpg">
-</div>
+<section id="que-es">
+    <h2>¿Qué es MotoGP?</h2>
+    <p>
+        MotoGP es la máxima categoría del Campeonato Mundial de Motociclismo.
+        En esta competición participan los mejores pilotos del mundo,
+        conduciendo motocicletas de alto rendimiento que superan los 350 km/h.
+    </p>
 </section>
 
 <section id="categorias">
-<h2>Categorías</h2>
-<div class="grid">
-<div><h3>MotoGP</h3><p>Categoría reina</p></div>
-<div><h3>Moto2</h3><p>Categoría intermedia</p></div>
-<div><h3>Moto3</h3><p>Formación de talentos</p></div>
-</div>
+    <h2>Categorías</h2>
+    <div class="cards">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1599940824399-b87987ceb72a" alt="MotoGP">
+            <h3>MotoGP</h3>
+            <p>Categoría principal con motos de máxima potencia y tecnología.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1611495717615-3cb28b76d05b" alt="Moto2">
+            <h3>Moto2</h3>
+            <p>Categoría intermedia enfocada en el talento y la técnica del piloto.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf9f8b" alt="Moto3">
+            <h3>Moto3</h3>
+            <p>Categoría base para el desarrollo de jóvenes promesas.</p>
+        </div>
+    </div>
 </section>
 
 <section id="pilotos">
-<h2>Pilotos Destacados</h2>
-<div class="grid">
-<div>Valentino Rossi</div>
-<div>Marc Márquez</div>
-<div>Jorge Lorenzo</div>
-<div>Francesco Bagnaia</div>
-</div>
+    <h2>Pilotos Destacados</h2>
+    <div class="cards">
+        <div class="card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Valentino_Rossi_2015.jpg">
+            <h3>Valentino Rossi</h3>
+            <p>Considerado una leyenda del motociclismo mundial.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Marc_Marquez_2019.jpg">
+            <h3>Marc Márquez</h3>
+            <p>Uno de los pilotos más dominantes de la era moderna.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Francesco_Bagnaia_2022.jpg">
+            <h3>Francesco Bagnaia</h3>
+            <p>Campeón mundial y referente actual de MotoGP.</p>
+        </div>
+    </div>
 </section>
 
-<section id="campeones">
-<h2>Campeones Recientes</h2>
-<table>
-<tr>
-<th>Año</th>
-<th>Piloto</th>
-<th>Equipo</th>
-</tr>
-<tr><td>2022</td><td>Bagnaia</td><td>Ducati</td></tr>
-<tr><td>2021</td><td>Quartararo</td><td>Yamaha</td></tr>
-<tr><td>2019</td><td>Márquez</td><td>Honda</td></tr>
-</table>
+<section id="proyecto">
+    <h2>Información del Proyecto</h2>
+    <p><strong>Nombre:</strong> Reymer Jiménez</p>
+    <p><strong>Asignatura:</strong> DevOps</p>
+    <p><strong>Institución:</strong> ITLA</p>
+    <p><strong>Plataforma:</strong> GitHub Pages</p>
 </section>
-
-<section id="calendario">
-<h2>Calendario Destacado</h2>
-<div class="grid">
-<div>Qatar 🇶🇦</div>
-<div>Argentina 🇦🇷</div>
-<div>España 🇪🇸</div>
-<div>Italia 🇮🇹</div>
-</div>
-</section>
-
-<section>
-<h2>Información del Proyecto</h2>
-<div class="card">
-<p><strong>Nombre:</strong> Reymer Jiménez</p>
-<p><strong>Asignatura:</strong> DevOps</p>
-<p><strong>Plataforma:</strong> GitHub Pages</p>
-</div>
-</section>
-
-</div>
 
 <footer>
-© 2026 | Proyecto académico | <span>MotoGP</span>
+    <p>© 2026 - Proyecto académico | MotoGP</p>
 </footer>
-
-<script>
-function modo(){
-document.body.classList.toggle("light");
-}
-</script>
 
 </body>
 </html>
